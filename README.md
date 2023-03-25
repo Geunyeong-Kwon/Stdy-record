@@ -1,2 +1,2 @@
-# Stdy-record
+# Study-record
 과제
