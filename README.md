@@ -1,2 +1,2 @@
 # Study-record
-과제
+C++, 과제
