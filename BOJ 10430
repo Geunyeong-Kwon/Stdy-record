@@ -1,0 +1,19 @@
+#include <iostream>
+
+using namespace std;
+
+void calc(int a,int b,int c);
+
+int main()
+{
+    int A,B,C;
+    cin>>A>>B>>C;
+    calc(A,B,C);
+
+    return 0;
+}
+
+void calc(int a,int b,int c){
+    cout<<(a+b)%c<<"\n"<<((a%c)+(b%c))%c<<"\n";
+    cout<<(a*b)%c<<"\n"<<((a%c)*(b%c))%c;
+}
