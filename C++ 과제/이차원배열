@@ -1,0 +1,55 @@
+#include<iostream>
+using namespace std;
+
+class ThreeMatrices {
+	int a[3][5] = { {5,10,2,7,5},{4,6,2,2,9},{1,9,2,8,4} }; # 정수형 2차원 배열 a 선언
+	int b[3][5] = { {5,2,7,4,5},{10,6,9,2,3},{2,6,4,7,1} }; # 정수형 2차원 배열 b 선언
+	int c[3][5]; # 정수형 배열 c 선언
+public: # 접근 지정자: public(클래스 default 접근 지정자: private)
+	ThreeMatrices(); # 기본 생성자 선언
+	void printC(); # 리턴 타입 없는 printC 매개 함수 선언
+	void biggerC(); # 리턴 타입 없는 biggerC 매개 함수 선언
+	void smallerC(); # 리턴 타입 없는 smallerC 매개 함수 선언
+}; # 클래스 선언부
+
+ThreeMatrices::ThreeMatrices() {
+	for (int i = 0; i < 3; i++)
+		for (int j = 0; j < 5; j++)
+			c[i][j] = 0;
+} # 클래스 구현부
+
+void ThreeMatrices::printC() {
+	for (int i = 0; i < 3; i++) {
+		for (int j = 0; j < 5; j++)
+			cout << c[i][j] << ' '; # c 배열에 값 집어넣기
+		cout << endl; # c 배열에 값 다 집어 넣은 다음 줄바꿈
+	}
+} # 클래스 구현부
+void ThreeMatrices::biggerC(){
+	for (int i = 0; i < 3; i++) {
+		for (int j = 0; j < 5; j++) {
+			if (a[i][j] >= b[i][j]) # a 배열의 값이 b 배열 값보다 클때
+				c[i][j] = a[i][j]; # c 배열에 a 배열 값 대입
+			else # a 배열 값이 b 배열 값보다 작을 때
+				c[i][j] = b[i][j]; # c 배열에 b 배열 값 대입 
+		}
+	}
+} # 클래스 구현부
+
+void ThreeMatrices::smallerC() {
+	for (int i = 0; i < 3; i++) {
+		for (int j = 0; j < 5; j++) {
+			if (a[i][j] >= b[i][j]) # a 배열의 값이 b 배열 값보다 작을 때
+				c[i][j] = b[i][j]; # c 배열에 b 배열 값 대입
+			else # a 배열의 값이 b 배열 값보다 클 때
+				c[i][j] = a[i][j]; # c 배열에 a 배열 값 대입
+		}
+	}
+} # 클래스 구현부
+
+int main() {
+	ThreeMatrices m; # 객체 m 생성
+	cout << "initial..." << endl;  m.printC(); 
+	cout << "bigger..." << endl;  m.biggerC();  m.printC(); 
+	cout << "smaller..." << endl;  m.smallerC();  m.printC();
+}
